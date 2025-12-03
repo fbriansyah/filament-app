@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Users\Schemas;
 
-use App\Enums\StatusUser;
+use App\Enums\Status;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
@@ -57,11 +57,11 @@ class UserForm
     {
         return Select::make('status')
             ->options([
-                StatusUser::Active->value => StatusUser::Active->name,
-                StatusUser::Inactive->value => StatusUser::Inactive->name,
-                StatusUser::Blocked->value => StatusUser::Blocked->name,
+                Status::Active->value => Status::Active->name,
+                Status::Inactive->value => Status::Inactive->name,
+                Status::Blocked->value => Status::Blocked->name,
             ])
-            ->default(StatusUser::Active->value)
+            ->default(Status::Active->value)
             ->required();
     }
 

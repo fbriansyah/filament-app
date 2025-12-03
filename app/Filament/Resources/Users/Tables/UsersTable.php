@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Users\Tables;
 
-use App\Enums\StatusUser;
+use App\Enums\Status;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -76,9 +76,9 @@ class UsersTable
         return TextColumn::make('status')
             ->badge()
             ->color(fn($state): string => match ($state) {
-                StatusUser::Active->value => 'success',
-                StatusUser::Inactive->value => 'warning',
-                StatusUser::Blocked->value => 'danger',
+                Status::Active->value => 'success',
+                Status::Inactive->value => 'warning',
+                Status::Blocked->value => 'danger',
             });
     }
 
