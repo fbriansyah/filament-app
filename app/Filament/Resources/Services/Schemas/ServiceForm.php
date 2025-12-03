@@ -21,20 +21,21 @@ class ServiceForm
                     ->required()
                     ->numeric()
                     ->default(0.0)
-                    ->prefix('$'),
+                    ->separator(".")
+                    ->prefix('Rp'),
                 TextInput::make('duration')
                     ->required()
                     ->numeric()
                     ->default(0),
                 Select::make('unit')
                     ->options([
-            'minute' => 'Minute',
-            'hour' => 'Hour',
-            'day' => 'Day',
-            'week' => 'Week',
-            'month' => 'Month',
-            'year' => 'Year',
-        ])
+                        'minute' => 'Minute',
+                        'hour' => 'Hour',
+                        'day' => 'Day',
+                        'week' => 'Week',
+                        'month' => 'Month',
+                        'year' => 'Year',
+                    ])
                     ->default('hour')
                     ->required(),
                 Select::make('place')
