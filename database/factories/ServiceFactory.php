@@ -17,8 +17,14 @@ class ServiceFactory extends Factory
     public function definition(): array
     {
         return [
-            "name" => fake()->word(),
-            "code" => fake()->lexify("????"),
+            "name" => fake()->unique()->randomElement([
+                "Service A",
+                "Service B",
+                "Service C",
+                "Service D",
+                "Service E",
+            ]),
+            "code" => fake()->lexify("????-????"),
             "price" => fake()->randomFloat(2, 10000, 1000000),
             "duration" => fake()->randomNumber(1),
             "unit" => fake()->randomElement(["minute", "hour", "day", "week", "month", "year"]),
