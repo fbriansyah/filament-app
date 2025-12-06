@@ -21,11 +21,12 @@ class OrderDetailResource extends Resource
 {
     protected static ?string $model = OrderDetail::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
 
     protected static ?string $recordTitleAttribute = 'id';
 
     protected static UnitEnum|string|null $navigationGroup = 'Orders';
+    protected static ?int $navigationSort = 2;
 
     public static function form(Schema $schema): Schema
     {
