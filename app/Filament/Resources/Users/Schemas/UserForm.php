@@ -56,11 +56,7 @@ class UserForm
     public static function getStatusFormField(): Select
     {
         return Select::make('status')
-            ->options([
-                Status::Active->value => Status::Active->name,
-                Status::Inactive->value => Status::Inactive->name,
-                Status::Blocked->value => Status::Blocked->name,
-            ])
+            ->options(Status::getArray())
             ->default(Status::Active->value)
             ->required();
     }
