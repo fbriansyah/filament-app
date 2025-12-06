@@ -64,7 +64,7 @@ class OrderDetailsRelationManager extends RelationManager
                     ->searchable(),
                 TextColumn::make('service.name')
                     ->searchable(),
-                TextColumn::make('assign_to.name')
+                TextColumn::make('assignTo.name')
                     ->searchable(),
                 TextColumn::make('status')
                     ->searchable()
