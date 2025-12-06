@@ -58,8 +58,9 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])->navigationGroups([
-                    'Users Management',
+                    'Orders',
                     'Mater Data',
+                    'Users Management',
                 ]);
     }
 }
