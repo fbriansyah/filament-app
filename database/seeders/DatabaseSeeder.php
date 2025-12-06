@@ -18,11 +18,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $roles = Role::factory(4)->create();
+        $roles = Role::factory(5)->create();
         Customer::factory(10)->create();
         Service::factory(5)->create();
 
-        User::factory(3)
+        User::factory(10)
             ->create()
             ->each(function ($user) use ($roles) {
                 $user->roles()->attach($roles->filter(function ($role) {

@@ -21,7 +21,7 @@ class OrderDetail extends Model
     ];
 
     protected $casts = [
-        'id' => 'uuid',
+        'id' => 'string',
         'price' => 'decimal:2',
         'scheduled_at' => 'datetime',
     ];

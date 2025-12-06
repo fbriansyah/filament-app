@@ -14,6 +14,7 @@ class Order extends Model
 
     protected $fillable = [
         'code',
+        'customer_id',
         'discount',
         'scheduled_at',
         'status',
@@ -22,7 +23,7 @@ class Order extends Model
     ];
 
     protected $casts = [
-        'id' => 'uuid',
+        'id' => 'string',
         'discount' => 'decimal:2',
         'scheduled_at' => 'datetime',
     ];
@@ -30,5 +31,10 @@ class Order extends Model
     public function orderDetails()
     {
         return $this->hasMany(OrderDetail::class);
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
     }
 }
