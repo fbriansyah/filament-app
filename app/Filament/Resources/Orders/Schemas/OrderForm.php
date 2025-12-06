@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Orders\Schemas;
 
+use App\Enums\OrderStatus;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -41,14 +42,8 @@ class OrderForm
                 DateTimePicker::make('scheduled_at')
                     ->required(),
                 Select::make('status')
-                    ->options([
-                        'scheduled' => 'Scheduled',
-                        'inprogress' => 'Inprogress',
-                        'rescheduled' => 'Rescheduled',
-                        'cancelled' => 'Cancelled',
-                        'done' => 'Done',
-                    ])
-                    ->default('scheduled')
+                    ->options(OrderStatus::getArray())
+                    ->default(OrderStatus::SCHEDULED->value)
                     ->required(),
             ]);
     }
