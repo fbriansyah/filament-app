@@ -23,9 +23,11 @@ class OrderDetailsTable
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('order.code')
                     ->searchable(),
+                TextColumn::make('assignTo.name')
+                    ->searchable(),
                 TextColumn::make('service.name')
                     ->searchable()
-                    ->description(fn($record) => $record->assignTo->name),
+                    ->description(fn($record) => $record->service->duration . ' ' . $record->service->unit),
                 TextColumn::make('price')
                     ->money("IDR", locale: "id")
                     ->sortable(),
