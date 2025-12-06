@@ -26,7 +26,7 @@ class OrdersTable
                 TextColumn::make('code')
                     ->searchable(),
                 TextColumn::make('discount')
-                    ->numeric()
+                    ->money("IDR", locale: "id")
                     ->sortable(),
                 TextColumn::make('scheduled_at')
                     ->dateTime()
