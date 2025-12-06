@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\OrderDetails\Schemas;
 
+use App\Enums\OrderDetailStatus;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -30,13 +31,8 @@ class OrderDetailForm
                     ->prefix('Rp')
                     ->separator("."),
                 Select::make('status')
-                    ->options([
-                        'pending' => 'Pending',
-                        'inprogress' => 'Inprogress',
-                        'done' => 'Done',
-                        'cancelled' => 'Cancelled',
-                    ])
-                    ->default('pending')
+                    ->options(OrderDetailStatus::getArray())
+                    ->default(OrderDetailStatus::PENDING->value)
                     ->required(),
                 DateTimePicker::make('scheduled_at')
                     ->required(),

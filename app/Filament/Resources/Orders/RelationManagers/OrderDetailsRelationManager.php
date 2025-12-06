@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Orders\RelationManagers;
 
+use App\Enums\OrderDetailStatus;
 use Filament\Actions\AssociateAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
@@ -48,13 +49,8 @@ class OrderDetailsRelationManager extends RelationManager
                     ->separator(".")
                     ->required(),
                 Select::make('status')
-                    ->options([
-                        'pending' => 'Pending',
-                        'inprogress' => 'Inprogress',
-                        'cancelled' => 'Cancelled',
-                        'done' => 'Done',
-                    ])
-                    ->default('pending')
+                    ->options(OrderDetailStatus::getArray())
+                    ->default(OrderDetailStatus::PENDING->value)
                     ->required(),
             ]);
     }
