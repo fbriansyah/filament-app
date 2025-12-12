@@ -29,6 +29,7 @@ class OrderForm
         return Step::make('Order Info')
             ->schema([
                 TextInput::make('code')
+                    ->default("ORD/" . date('Y-m-d') . "/0000")
                     ->required(),
                 TextInput::make('discount')
                     ->required()
