@@ -1,59 +1,111 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Filament App
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel 12 application with Filament 4 admin panel for managing orders, customers, services, and user roles.
 
-## About Laravel
+## Tech Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **PHP** 8.2+
+- **Laravel** 12
+- **Filament** 4.2 (Admin Panel)
+- **SQLite** (default database)
+- **Vite** (frontend bundling)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- 📦 **Order Management** - Create and manage orders with order details
+- 👥 **Customer Management** - Track customer information
+- 🛠️ **Services** - Configure available services
+- 👤 **User Management** - Manage system users
+- 🔐 **Roles & Permissions** - Role-based access control
+- 📥 **Bulk Import** - Import data via Filament's import system
 
-## Learning Laravel
+## Requirements
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- PHP 8.2 or higher
+- Composer
+- Node.js & NPM
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Installation
 
-## Laravel Sponsors
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd filament-app
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+2. **Run the setup script**
+   ```bash
+   composer setup
+   ```
 
-### Premium Partners
+   This will:
+   - Install PHP dependencies
+   - Copy `.env.example` to `.env` (if not exists)
+   - Generate application key
+   - Run database migrations
+   - Install NPM dependencies
+   - Build frontend assets
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+3. **Create an admin user**
+   ```bash
+   php artisan make:filament-user
+   ```
 
-## Contributing
+## Development
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Start the development server with hot-reloading:
 
-## Code of Conduct
+```bash
+composer dev
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+This runs concurrently:
+- Laravel development server (`php artisan serve`)
+- Queue worker (`php artisan queue:listen`)
+- Vite dev server (`npm run dev`)
 
-## Security Vulnerabilities
+### Individual Commands
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+# Run Laravel server only
+php artisan serve
+
+# Run Vite dev server only
+npm run dev
+
+# Run tests
+composer test
+```
+
+## Project Structure
+
+```
+app/
+├── Enums/              # Status enums (OrderStatus, OrderDetailStatus)
+├── Filament/
+│   ├── Imports/        # Import configurations
+│   ├── Pages/          # Custom Filament pages
+│   └── Resources/      # CRUD resources
+│       ├── Customers/
+│       ├── Orders/
+│       ├── OrderDetails/
+│       ├── Roles/
+│       ├── Services/
+│       └── Users/
+├── Models/             # Eloquent models
+│   ├── Customer.php
+│   ├── Order.php
+│   ├── OrderDetail.php
+│   ├── Role.php
+│   ├── Service.php
+│   └── User.php
+└── Policies/           # Authorization policies
+```
+
+## Admin Panel
+
+Access the Filament admin panel at `/admin` after starting the development server.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
