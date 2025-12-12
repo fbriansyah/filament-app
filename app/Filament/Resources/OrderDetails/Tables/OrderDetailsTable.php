@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\OrderDetails\Tables;
 
+use App\Enums\OrderDetailStatus;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -33,7 +34,8 @@ class OrderDetailsTable
                     ->money("IDR", locale: "id")
                     ->sortable(),
                 TextColumn::make('status')
-                    ->badge(),
+                    ->badge()
+                    ->color(fn($record) => OrderDetailStatus::from($record->status)->getColor()),
                 TextColumn::make('scheduled_at')
                     ->dateTime()
                     ->sortable(),

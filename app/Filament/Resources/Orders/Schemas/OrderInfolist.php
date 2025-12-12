@@ -2,13 +2,14 @@
 
 namespace App\Filament\Resources\Orders\Schemas;
 
+use App\Enums\OrderDetailStatus;
 use App\Enums\OrderStatus;
 use App\Models\Order;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\FontWeight;
-use Filament\Support\Enums\TextSize;
+use Illuminate\Database\Eloquent\Builder;
 
 class OrderInfolist
 {
@@ -23,7 +24,9 @@ class OrderInfolist
                             ->weight(FontWeight::Bold)
                             ->label('Order Code'),
                         TextEntry::make('order_details_sum_price')
-                            ->sum('orderDetails', 'price')
+                            ->sum([
+                                'orderDetails' => fn(Builder $query) => $query->where('status', '!=', OrderDetailStatus::CANCELLED->value),
+                            ], 'price')
                             ->label('Price')
                             ->money("IDR", locale: "id"),
                         TextEntry::make('discount')

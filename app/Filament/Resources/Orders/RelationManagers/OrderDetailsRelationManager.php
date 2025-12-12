@@ -69,7 +69,8 @@ class OrderDetailsRelationManager extends RelationManager
                     ->searchable(),
                 TextColumn::make('status')
                     ->searchable()
-                    ->badge(),
+                    ->badge()
+                    ->color(fn($record) => OrderDetailStatus::from($record->status)->getColor()),
                 TextColumn::make('price')
                     ->money("IDR", locale: "id")
                     ->sortable(),

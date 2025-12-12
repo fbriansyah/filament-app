@@ -19,6 +19,16 @@ enum OrderDetailStatus: string
         };
     }
 
+    public function getColor(): string
+    {
+        return match ($this) {
+            self::PENDING => 'info',
+            self::INPROGRESS => 'primary',
+            self::DONE => 'success',
+            self::CANCELLED => 'danger',
+        };
+    }
+
     public static function getArray(): array
     {
         return [
