@@ -22,6 +22,7 @@ class OrderDetailsTable
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('order.code')
+                    ->copyable()
                     ->searchable(),
                 TextColumn::make('assignTo.name')
                     ->searchable(),
