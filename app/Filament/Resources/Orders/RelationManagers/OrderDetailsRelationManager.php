@@ -61,7 +61,8 @@ class OrderDetailsRelationManager extends RelationManager
             ->recordTitleAttribute('id')
             ->columns([
                 TextColumn::make('id')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('service.name')
                     ->searchable(),
                 TextColumn::make('assignTo.name')

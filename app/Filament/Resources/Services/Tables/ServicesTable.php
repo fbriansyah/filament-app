@@ -24,7 +24,7 @@ class ServicesTable
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('name')
                     ->searchable()
-                    ->description(fn(Service $service): string => $service->description),
+                    ->description(fn(Service $service): string => $service->description ?? "-"),
                 TextColumn::make('code')
                     ->searchable(),
                 TextColumn::make('price')
