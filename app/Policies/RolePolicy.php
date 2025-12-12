@@ -33,7 +33,7 @@ class RolePolicy
      */
     public function create(User $user): bool
     {
-        return $this->viewAny($user);
+        return false;
     }
 
     /**
@@ -41,7 +41,7 @@ class RolePolicy
      */
     public function update(User $user, Role $role): bool
     {
-        return $this->viewAny($user);
+        return false;
     }
 
     /**
@@ -49,12 +49,12 @@ class RolePolicy
      */
     public function delete(User $user, Role $role): bool
     {
-        return $this->viewAny($user);
+        return false;
     }
 
     public function deleteAny(User $user): bool
     {
-        return $this->viewAny($user);
+        return false;
     }
 
     /**
@@ -62,7 +62,7 @@ class RolePolicy
      */
     public function restore(User $user, Role $role): bool
     {
-        return $this->viewAny($user);
+        return false;
     }
 
     /**
