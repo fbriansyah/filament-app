@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Orders\Tables;
 
+use App\Enums\OrderStatus;
+use App\Models\Order;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -32,7 +34,8 @@ class OrdersTable
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('status')
-                    ->badge(),
+                    ->badge()
+                    ->color(fn(Order $record) => OrderStatus::from($record->status)->getColor()),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

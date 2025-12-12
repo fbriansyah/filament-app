@@ -2,6 +2,8 @@
 
 namespace App\Enums;
 
+use Filament\Support\Colors\Color;
+
 enum OrderStatus: string
 {
     case SCHEDULED = 'scheduled';
@@ -19,6 +21,17 @@ enum OrderStatus: string
             self::RESCHEDULED => 'Rescheduled',
             self::CANCELLED => 'Cancelled',
             self::DONE => 'Done',
+        };
+    }
+
+    public function getColor(): string
+    {
+        return match ($this) {
+            self::SCHEDULED => 'info',
+            self::INPROGRESS => 'primary',
+            self::RESCHEDULED => 'warning',
+            self::CANCELLED => 'danger',
+            self::DONE => 'success',
         };
     }
 

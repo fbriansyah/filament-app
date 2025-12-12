@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Orders\Schemas;
 
+use App\Enums\OrderStatus;
 use App\Models\Order;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
@@ -31,6 +32,7 @@ class OrderInfolist
                             ->dateTime(),
                         TextEntry::make('status')
                             ->badge()
+                            ->color(fn(Order $record) => OrderStatus::from($record->status)->getColor()),
                     ])
                 ,
                 Section::make('Customer Infos')
