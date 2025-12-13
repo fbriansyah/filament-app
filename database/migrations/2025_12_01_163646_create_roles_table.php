@@ -20,7 +20,7 @@ return new class extends Migration {
         });
 
         Schema::create('user_roles', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->uuid('user_id')->index();
             $table->uuid('role_id')->index();
             $table->json('metadata')->nullable();
