@@ -32,9 +32,9 @@
                     </button>
                 </div>
                 <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#" class="text-sm/6 font-semibold text-gray-900">Services</a>
-                    <a href="#" class="text-sm/6 font-semibold text-gray-900">About</a>
-                    <a href="#" class="text-sm/6 font-semibold text-gray-900">Blog</a>
+                    <a href="/services" class="text-sm/6 font-semibold text-gray-900">Services</a>
+                    <a href="/about" class="text-sm/6 font-semibold text-gray-900">About</a>
+                    <a href="/blog" class="text-sm/6 font-semibold text-gray-900">Blog</a>
                 </div>
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                     <a href="/admin/login" class="text-sm/6 font-semibold text-gray-900">Log in <span
@@ -64,11 +64,11 @@
                             <div class="mt-6 flow-root">
                                 <div class="-my-6 divide-y divide-gray-500/10">
                                     <div class="space-y-2 py-6">
-                                        <a href="#"
+                                        <a href="/services"
                                             class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Services</a>
-                                        <a href="#"
+                                        <a href="/about"
                                             class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">About</a>
-                                        <a href="#"
+                                        <a href="/blog"
                                             class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Blog</a>
                                     </div>
                                     <div class="py-6">
